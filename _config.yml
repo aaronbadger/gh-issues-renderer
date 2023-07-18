@@ -1,3 +1,1 @@
-title: A Simple GH Issue Renderer
-description: A Simple GH Issue Renderer
-remote_theme: pages-themes/architect@v0.2.0
+theme: minima
