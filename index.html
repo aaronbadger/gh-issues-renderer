@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script type="module">
+	  import marked from 'https://unpkg.com/marked@2.0.0/lib/marked.esm.js'
 	  import {React, ReactDOM} from 'https://unpkg.com/es-react@16.13.1'
 	  import htm from 'https://unpkg.com/htm?module'
 	  import { endpoint } from 'https://cdn.skypack.dev/@octokit/endpoint'
@@ -31,7 +32,7 @@
             return html`
               <div id=${number} key=${number}>
                 <h1>${title}</h1>
-                <div>${body}</div>
+                <div dangerouslySetInnerHTML="${{__html: marked(body)}}" />
               </div>
             `
           })}
@@ -44,4 +45,3 @@
 Hello!	
 </body>
 </html>
-
