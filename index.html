@@ -6,12 +6,37 @@
 	<script type="module">
 	  import {React, ReactDOM} from 'https://unpkg.com/es-react@16.13.1'
 	  import htm from 'https://unpkg.com/htm?module'
+	  import { endpoint } from 'https://cdn.skypack.dev/@octokit/endpoint'
 
+      const TOKEN = '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'
 	  const html = htm.bind(React.createElement)
-
+      
 	  const Posts = (props) => {
-  		return html` <div>These will be our posts</div> `
-	  }
+	  	const [issues, setIssues] = React.useState([])
+	  	React.useEffect(() => {
+          async function fetchIssues() {
+            const { url, ...options } = endpoint('GET /repos/:owner/:repo/issues', {
+              owner: 'aaronbadger',
+              repo: 'gh-issues-renderer',
+              auth: TOKEN,
+            });
+            const response = await fetch(url, options)
+            const issues = await response.json()
+            setIssues(issues)
+          }
+          fetchIssues()
+        }, [])
+        return html`
+          ${issues.map(({number, title, body}) => {
+            return html`
+              <div id=${number} key=${number}>
+                <h1>${title}</h1>
+                <div>${body}</div>
+              </div>
+            `
+          })}
+        `
+      }
 	  ReactDOM.render(html` <${Posts} /> `, document.body)
 </script>
 </head>
@@ -19,3 +44,4 @@
 Hello!	
 </body>
 </html>
+
