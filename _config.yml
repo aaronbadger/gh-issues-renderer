@@ -2,4 +2,4 @@ title: Simple GH Issue Renderer
 description: Simple GH Issue Renderer
 remote_theme: just-the-docs/just-the-docs-template
 
-url: https://aaronbadger.github.io/gh-issues-renderer/
+baseurl: https://aaronbadger.github.io/gh-issues-renderer/
