@@ -85,10 +85,9 @@ footer {
   padding: 10px;
   overflow-x: auto; /* Enable horizontal scrolling for code overflow */
   border-radius: 5px;
-  display: block; /* Ensure the code box is visible by default */
 }
 
-/* CSS for the code box when hidden */
+/* CSS to hide the code box by default */
 .issue-body-code.hidden {
   display: none;
 }
