@@ -21,13 +21,14 @@ header {
   background-color: #007bff;
   color: #fff;
   padding: 10px 0;
-  text-align: center;
+  /* Remove text-align: center; to left-align the headers */
 }
 
 /* Style the main heading */
 header h1 {
   font-size: 24px;
   margin: 0;
+  text-align: left; /* Align the main heading to the left */
 }
 
 /* Add some spacing and style for the container */
@@ -45,16 +46,6 @@ header h1 {
   gap: 20px; /* Add spacing between the issues */
 }
 
-/* CSS for the code box with black background and neon green text */
-.issue-body-code {
-  background-color: black;
-  color: #39ff14; /* Neon green */
-  padding: 10px;
-  overflow-x: auto; /* Enable horizontal scrolling for code overflow */
-  border-radius: 5px;
-  font-family: 'Menlo', monospace; /* Optional: Use the same font as specified in the Google Fonts link */
-}
-
 .issue-card {
   background-color: #333; /* Dark color for issue card background */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -65,6 +56,7 @@ header h1 {
 .issue-card h2 {
   font-size: 18px;
   margin-bottom: 10px;
+  text-align: left; /* Align the issue headers to the left */
 }
 
 /* Apply styles to links */
@@ -85,3 +77,15 @@ footer {
   text-align: center;
   padding: 10px 0;
 }
+
+/* CSS for the code box with black background and neon green text */
+.issue-body-code {
+  font-family: 'Menlo', monospace;
+  background-color: black;
+  color: #39ff14; /* Neon green */
+  padding: 10px;
+  overflow-x: auto; /* Enable horizontal scrolling for code overflow */
+  border-radius: 5px;
+}
+
+/* Add more CSS rules as needed for other elements */
