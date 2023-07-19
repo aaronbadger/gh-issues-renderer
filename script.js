@@ -47,7 +47,9 @@ function renderIssues(issues) {
   const filteredIssues = issues.filter(({ number }) => !search || Number(search.slice(1)) === number);
 
   const issuesContainer = document.getElementById("issues");
-  filteredIssues.forEach((issue) => {
+
+  // Reverse the filteredIssues array to display issues in reverse order
+  filteredIssues.reverse().forEach((issue) => {
     const header = createIssueHeader(issue);
     const body = createIssueBody(issue);
     issuesContainer.appendChild(header);
