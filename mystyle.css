@@ -11,6 +11,9 @@ body {
   background-color: #1a1a1a; /* Dark background color */
   color: #f2f2f2; /* Light text color */
   line-height: 1.6;
+  display: flex;
+  flex-direction: column; /* Align children vertically */
+  min-height: 100vh; /* Ensure the body takes at least the full viewport height */
 }
 
 /* Create a clean header */
@@ -32,6 +35,7 @@ header h1 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  flex: 1; /* Allow the container to grow and push the footer to the bottom */
 }
 
 /* Style the issue cards vertically */
@@ -71,5 +75,3 @@ footer {
   text-align: center;
   padding: 10px 0;
 }
-
-/* Add additional CSS for specific components if needed */
