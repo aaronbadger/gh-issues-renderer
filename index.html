@@ -47,9 +47,9 @@
             .map(({number, title, body}) => {
               return html`
                 <div id=${number} key=${number}>
-                  <h1>
+                  <h3>
                     <a href="?${number}"> ${title} </a>
-                  </h1>
+                  </h3>
                   <div dangerouslySetInnerHTML="${{__html: marked(body)}}" />
                 </div>
               `
