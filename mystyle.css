@@ -87,4 +87,24 @@ footer {
   border-radius: 5px;
 }
 
+/* CSS to hide the code box by default */
+.issue-body-code.hidden {
+  display: none;
+}
+
+/* CSS for the toggle button */
+.code-box-container button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.code-box-container button:hover {
+  background-color: #0056b3;
+}
+
 /* Add more CSS rules as needed for other elements */
