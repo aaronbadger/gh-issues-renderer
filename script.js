@@ -18,7 +18,7 @@ async function fetchIssues() {
 
 function createIssueHeader(issue) {
   const { number, title } = issue;
-  const header = document.createElement("h2");
+  const header = document.createElement("h3");
   header.textContent = title;
   header.classList.add("issue-header");
   header.addEventListener("click", () => {
