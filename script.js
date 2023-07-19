@@ -39,10 +39,21 @@ function createIssueBody(issue) {
   bodyElement.id = `issue-body-${number}`;
   bodyElement.style.display = "none";
 
-  const codeBox = document.createElement("pre"); // Create a <pre> element for the code box
-  codeBox.classList.add("issue-body-code");
+  const codeBoxContainer = document.createElement("div");
+  codeBoxContainer.classList.add("code-box-container");
 
-  // Render the additional information with clickable URL
+  const toggleButton = document.createElement("button");
+  toggleButton.textContent = "Toggle Code";
+  toggleButton.addEventListener("click", () => {
+    codeBox.classList.toggle("hidden");
+  });
+
+  const codeBox = document.createElement("pre");
+  codeBox.classList.add("issue-body-code");
+  codeBox.classList.add("hidden"); // Initially hide the code box
+
+  codeBox.innerHTML = marked(body);
+
   bodyElement.innerHTML = `
     <p><strong>Labels:</strong> ${labels.map((label) => label.name).join(", ")}</p>
     <p><strong>State:</strong> ${state}</p>
@@ -52,10 +63,9 @@ function createIssueBody(issue) {
     <p><strong>URL:</strong> <a href="${html_url}" target="_blank">${html_url}</a></p>
   `;
 
-  // Convert the markdown body to HTML and place it inside the code box
-  codeBox.innerHTML = marked(body);
-
-  bodyElement.appendChild(codeBox); // Append the code box to the issue body
+  codeBoxContainer.appendChild(toggleButton);
+  codeBoxContainer.appendChild(codeBox);
+  bodyElement.appendChild(codeBoxContainer);
 
   return bodyElement;
 }
@@ -66,7 +76,6 @@ function renderIssues(issues) {
 
   const issuesContainer = document.getElementById("issues");
 
-  // Reverse the filteredIssues array to display issues in reverse order
   filteredIssues.reverse().forEach((issue) => {
     const header = createIssueHeader(issue);
     const body = createIssueBody(issue);
