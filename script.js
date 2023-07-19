@@ -16,45 +16,20 @@ async function fetchIssues() {
   return issues;
 }
 
-function createIssueHeader(issue) {
-  const { number, title } = issue;
-  const header = document.createElement("h3");
-  header.textContent = title;
-  header.classList.add("issue-header");
-  header.addEventListener("click", () => {
-    const body = document.getElementById(`issue-body-${number}`);
-    if (body.style.display === "none") {
-      body.style.display = "block";
-    } else {
-      body.style.display = "none";
-    }
-  });
-  return header;
-}
-
 function createIssueBody(issue) {
-  const { number, body, labels, state, created_at, assignee, user, html_url } = issue;
+  const { number, body, labels, state, created_at, assignee, user, html_url, title } = issue;
   const bodyElement = document.createElement("div");
   bodyElement.classList.add("issue-body");
-  bodyElement.id = `issue-body-${number}`;
-  bodyElement.style.display = "none";
 
   const codeBoxContainer = document.createElement("div");
   codeBoxContainer.classList.add("code-box-container");
 
-  const toggleButton = document.createElement("button");
-  toggleButton.textContent = "Issue Detail";
-  toggleButton.addEventListener("click", () => {
-    codeBox.classList.toggle("hidden");
-  });
-
   const codeBox = document.createElement("pre");
   codeBox.classList.add("issue-body-code");
-  codeBox.classList.add("hidden"); // Initially hide the code box
-
   codeBox.innerHTML = marked(body);
 
   bodyElement.innerHTML = `
+    <h3>${title}</h3>
     <p><strong>Labels:</strong> ${labels.map((label) => label.name).join(", ")}</p>
     <p><strong>State:</strong> ${state}</p>
     <p><strong>Created At:</strong> ${created_at}</p>
@@ -63,7 +38,6 @@ function createIssueBody(issue) {
     <p><strong>URL:</strong> <a href="${html_url}" target="_blank">${html_url}</a></p>
   `;
 
-  codeBoxContainer.appendChild(toggleButton);
   codeBoxContainer.appendChild(codeBox);
   bodyElement.appendChild(codeBoxContainer);
 
@@ -77,9 +51,7 @@ function renderIssues(issues) {
   const issuesContainer = document.getElementById("issues");
 
   filteredIssues.reverse().forEach((issue) => {
-    const header = createIssueHeader(issue);
     const body = createIssueBody(issue);
-    issuesContainer.appendChild(header);
     issuesContainer.appendChild(body);
   });
 }
