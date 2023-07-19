@@ -33,19 +33,20 @@ function createIssueHeader(issue) {
 }
 
 function createIssueBody(issue) {
-  const { number, body, labels, state, created_at, assignee, user } = issue;
+  const { number, body, labels, state, created_at, assignee, user, html_url } = issue;
   const bodyElement = document.createElement("div");
   bodyElement.classList.add("issue-body");
   bodyElement.id = `issue-body-${number}`;
   bodyElement.style.display = "none";
 
-  // Render the additional information
+  // Render the additional information with clickable URL
   bodyElement.innerHTML = `
     <p><strong>Labels:</strong> ${labels.map((label) => label.name).join(", ")}</p>
     <p><strong>State:</strong> ${state}</p>
     <p><strong>Created At:</strong> ${created_at}</p>
     <p><strong>Assignee:</strong> ${assignee ? assignee.login : "None"}</p>
     <p><strong>Reporter:</strong> ${user.login}</p>
+    <p><strong>URL:</strong> <a href="${html_url}" target="_blank">${html_url}</a></p>
     <div>${marked(body)}</div>
   `;
 
