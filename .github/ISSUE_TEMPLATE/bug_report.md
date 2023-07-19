@@ -1,38 +1,61 @@
----
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+```
+## Issue Title
+
+[Short Description of the Issue]
+
+### Issue Overview
+
+[Briefly describe the problem or enhancement request]
+
+### Steps to Reproduce
+
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+...
+
+### Expected Behavior
+
+[Describe what you expect to happen]
+
+### Actual Behavior
+
+[Describe what is currently happening]
+
+### Code Sample
+
+```[language]
+// Paste relevant code here
+```
+
+### Environment
+
+- Operating System: [e.g., Windows 10, macOS Big Sur, Ubuntu 20.04]
+- Browser (if applicable): [e.g., Chrome, Firefox, Safari]
+- Python Version (if applicable): [e.g., 3.9.7]
+- Node.js Version (if applicable): [e.g., 14.17.6]
+- Other relevant environment details
+
+### Additional Information
+
+[Provide any other relevant details about the issue, such as error messages, logs, screenshots, or related GitHub pull requests or commits]
+
+### Possible Solution
+
+[If you have a suggestion for how to fix the issue, briefly outline your proposed solution]
+
+### Impact
+
+[Explain the potential impact of this issue on the project or users]
+
+### Steps to Fix
+
+[If applicable, provide step-by-step instructions on how to address the issue]
+
+### Related Issues
+
+[List any related GitHub issues or pull requests]
 
 ---
-
-**Describe the bug**
-A clear and concise description of what the bug is.
-
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
-
-**Expected behavior**
-A clear and concise description of what you expected to happen.
-
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+*Note: Remember to add appropriate labels, assignees, and milestones to the issue.*
+```
