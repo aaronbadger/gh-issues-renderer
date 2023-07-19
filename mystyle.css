@@ -1,59 +1,67 @@
-/* Apply a clean background and font for the whole page */
+/* Reset default styles to ensure consistency across browsers */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set up the body element with a clean background and font */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #f2f2f2;
   color: #333;
   line-height: 1.6;
 }
 
-/* Center the content */
+/* Create a clean header */
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Style the main heading */
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Add some spacing and style for the container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Style the code blocks to enhance readability */
-code {
-  font-family: "Courier New", monospace;
-  font-size: 14px;
-  background-color: #f8f8f8;
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  display: block;
-  overflow-x: auto;
+/* Style the issue cards */
+#issues {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-/* Highlight code syntax */
-pre code {
-  display: block;
-  background-color: transparent;
-  padding: 0;
-  border: none;
-}
-
-/* Style GitHub issues in a card-like format */
 .issue-card {
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 20px;
-  margin-bottom: 20px;
 }
 
-.issue-card h3 {
+.issue-card h2 {
   font-size: 18px;
   margin-bottom: 10px;
 }
 
-.issue-card p {
-  margin-bottom: 10px;
+/* Apply styles to links */
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-/* Add a subtle box-shadow to elements on hover */
-.hover-shadow:hover {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+a:hover {
+  color: #0056b3;
 }
 
 /* Create a clean and modern footer */
@@ -64,4 +72,4 @@ footer {
   padding: 10px 0;
 }
 
-/* Add additional CSS for specific components as needed */
+/* Add additional CSS for specific components if needed */
