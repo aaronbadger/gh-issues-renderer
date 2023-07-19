@@ -3,7 +3,7 @@
 import marked from "https://unpkg.com/marked@2.0.0/lib/marked.esm.js";
 import { endpoint } from "https://cdn.skypack.dev/@octokit/endpoint";
 
-const TOKEN = ""; // Your GitHub token (consider handling this server-side)
+const TOKEN = "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"; // Your GitHub token (consider handling this server-side)
 
 async function fetchIssues() {
   const { url, ...options } = endpoint("GET /repos/:owner/:repo/issues", {
