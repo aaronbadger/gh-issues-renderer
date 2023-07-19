@@ -1,85 +1,62 @@
-/* Reset default styles to ensure consistency across browsers */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Set up the body element with a clean background and font */
+/* Apply a clean background and font for the whole page */
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
   color: #333;
+  line-height: 1.6;
 }
 
-/* Add a container to center the content */
+/* Center the content */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Create a clean header */
-header {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 0;
-  text-align: center;
+/* Style the code blocks to enhance readability */
+code {
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  background-color: #f8f8f8;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: block;
+  overflow-x: auto;
 }
 
-/* Style navigation menu */
-nav {
-  text-align: center;
-}
-
-nav ul {
-  list-style: none;
-}
-
-nav li {
-  display: inline-block;
-  margin: 0 15px;
-}
-
-nav a {
-  color: #007bff;
-  text-decoration: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-/* Apply clean styling to links */
-a {
-  color: #007bff;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: #0056b3;
-}
-
-/* Style headings with a modern font */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
-}
-
-/* Create modern-looking buttons */
-.button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
+/* Highlight code syntax */
+pre code {
+  display: block;
+  background-color: transparent;
+  padding: 0;
   border: none;
+}
+
+/* Style GitHub issues in a card-like format */
+.issue-card {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-.button:hover {
-  background-color: #0056b3;
+.issue-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
-/* Add a clean and modern footer */
+.issue-card p {
+  margin-bottom: 10px;
+}
+
+/* Add a subtle box-shadow to elements on hover */
+.hover-shadow:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Create a clean and modern footer */
 footer {
   background-color: #007bff;
   color: #fff;
@@ -87,29 +64,4 @@ footer {
   padding: 10px 0;
 }
 
-/* Apply styles to input fields and text areas */
-input[type="text"],
-input[type="email"],
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-family: Arial, sans-serif;
-}
-
-/* Add a subtle box-shadow to elements on hover */
-.hover-shadow:hover {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Add some animations to elements */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.fade-in {
-  animation: fadeIn 1s;
-}
+/* Add additional CSS for specific components as needed */
