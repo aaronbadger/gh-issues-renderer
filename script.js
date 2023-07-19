@@ -33,10 +33,14 @@ function createIssueHeader(issue) {
 }
 
 function createIssueBody(issue) {
-  // ... (existing code)
+  const { number, body, labels, state, created_at, assignee, user, html_url } = issue;
+  const bodyElement = document.createElement("div");
+  bodyElement.classList.add("issue-body");
+  bodyElement.id = `issue-body-${number}`;
+  bodyElement.style.display = "none";
 
   const codeBox = document.createElement("pre"); // Create a <pre> element for the code box
-  codeBox.classList.add("issue-body-code"); // Apply the CSS class for the code box
+  codeBox.classList.add("issue-body-code");
 
   // Render the additional information with clickable URL
   bodyElement.innerHTML = `
