@@ -43,7 +43,7 @@ function createIssueBody(issue) {
   codeBoxContainer.classList.add("code-box-container");
 
   const toggleButton = document.createElement("button");
-  toggleButton.textContent = "Toggle Code";
+  toggleButton.textContent = "Issue Detail";
   toggleButton.addEventListener("click", () => {
     codeBox.classList.toggle("hidden");
   });
