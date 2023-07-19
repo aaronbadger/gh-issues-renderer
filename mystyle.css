@@ -21,14 +21,13 @@ header {
   background-color: #007bff;
   color: #fff;
   padding: 10px 0;
-  /* Remove text-align: center; to left-align the headers */
+  text-align: center; /* Center the main header text */
 }
 
 /* Style the main heading */
 header h1 {
   font-size: 24px;
   margin: 0;
-  text-align: left; /* Align the main heading to the left */
 }
 
 /* Add some spacing and style for the container */
@@ -56,7 +55,7 @@ header h1 {
 .issue-card h2 {
   font-size: 18px;
   margin-bottom: 10px;
-  text-align: left; /* Align the issue headers to the left */
+  text-align: left; /* Align the issue card headers to the left */
 }
 
 /* Apply styles to links */
