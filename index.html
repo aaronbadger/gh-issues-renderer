@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Simple GH Issue Renderer</title>
+
+  <!-- Add your external CSS file for general styling -->
+  <link rel="stylesheet" href="mystyle.css">
+
+  <!-- Add a modern font (Roboto) from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Add external CSS specific to React components -->
+  <link rel="stylesheet" href="react-components.css">
+
+  <!-- Add additional meta tags or other header content as needed -->
+
+
 	<script type="module">
 	  import marked from 'https://unpkg.com/marked@2.0.0/lib/marked.esm.js'
 	  import {React, ReactDOM} from 'https://unpkg.com/es-react@16.13.1'
@@ -45,8 +59,7 @@
       }
 	  ReactDOM.render(html` <${Posts} /> `, document.body)
 </script>
-</head>
-<link rel="stylesheet" href="mystyle.css">	
+</head>	
 <body>
 1st text to load.	
 </body>
