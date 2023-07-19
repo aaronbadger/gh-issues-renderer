@@ -34,11 +34,11 @@ header h1 {
   padding: 20px;
 }
 
-/* Style the issue cards */
+/* Style the issue cards vertically */
 #issues {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column; /* Display issues vertically */
+  gap: 20px; /* Add spacing between the issues */
 }
 
 .issue-card {
