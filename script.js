@@ -15,22 +15,43 @@ async function fetchIssues() {
   return issues;
 }
 
+function createIssueHeader(issue) {
+  const { number, title } = issue;
+  const header = document.createElement("h2");
+  header.textContent = title;
+  header.classList.add("issue-header");
+  header.addEventListener("click", () => {
+    const body = document.getElementById(`issue-body-${number}`);
+    if (body.style.display === "none") {
+      body.style.display = "block";
+    } else {
+      body.style.display = "none";
+    }
+  });
+  return header;
+}
+
+function createIssueBody(issue) {
+  const { number, body } = issue;
+  const bodyElement = document.createElement("div");
+  bodyElement.innerHTML = marked(body);
+  bodyElement.classList.add("issue-body");
+  bodyElement.id = `issue-body-${number}`;
+  bodyElement.style.display = "none";
+  return bodyElement;
+}
+
 function renderIssues(issues) {
   const { search } = window.location;
   const filteredIssues = issues.filter(({ number }) => !search || Number(search.slice(1)) === number);
 
-  const issuesHTML = filteredIssues
-    .map(({ number, title, body }) => `
-      <div id=${number} key=${number}>
-        <h2>
-          <a href="?${number}">${title}</a>
-        </h2>
-        <div>${marked(body)}</div>
-      </div>
-    `)
-    .join("");
-
-  issuesContainer.innerHTML = issuesHTML;
+  const issuesContainer = document.getElementById("issues");
+  filteredIssues.forEach((issue) => {
+    const header = createIssueHeader(issue);
+    const body = createIssueBody(issue);
+    issuesContainer.appendChild(header);
+    issuesContainer.appendChild(body);
+  });
 }
 
 fetchIssues().then(renderIssues);
