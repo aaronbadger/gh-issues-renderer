@@ -39,6 +39,9 @@ function createIssueBody(issue) {
   bodyElement.id = `issue-body-${number}`;
   bodyElement.style.display = "none";
 
+  const codeBox = document.createElement("pre"); // Create a <pre> element for the code box
+  codeBox.classList.add("issue-body-code");
+
   // Render the additional information with clickable URL
   bodyElement.innerHTML = `
     <p><strong>Labels:</strong> ${labels.map((label) => label.name).join(", ")}</p>
@@ -47,8 +50,12 @@ function createIssueBody(issue) {
     <p><strong>Assignee:</strong> ${assignee ? assignee.login : "None"}</p>
     <p><strong>Reporter:</strong> ${user.login}</p>
     <p><strong>URL:</strong> <a href="${html_url}" target="_blank">${html_url}</a></p>
-    <div>${marked(body)}</div>
   `;
+
+  // Convert the markdown body to HTML and place it inside the code box
+  codeBox.innerHTML = marked(body);
+
+  bodyElement.appendChild(codeBox); // Append the code box to the issue body
 
   return bodyElement;
 }
