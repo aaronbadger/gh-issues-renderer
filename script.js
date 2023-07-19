@@ -1,3 +1,5 @@
+// script.js
+
 import marked from "https://unpkg.com/marked@2.0.0/lib/marked.esm.js";
 import { endpoint } from "https://cdn.skypack.dev/@octokit/endpoint";
 
@@ -26,14 +28,16 @@ function createIssueBody(issue) {
   codeBox.classList.add("issue-body-code");
   codeBox.innerHTML = marked(body);
 
-  // Add a button to toggle code box visibility
-  const toggleButton = document.createElement("button");
-  toggleButton.textContent = "Toggle Code Box";
-  toggleButton.addEventListener("click", () => {
-    codeBox.classList.toggle("hidden");
-  });
+  bodyElement.innerHTML = `
+    <h3>${title}</h3>
+    <p><strong>Labels:</strong> ${labels.map((label) => label.name).join(", ")}</p>
+    <p><strong>State:</strong> ${state}</p>
+    <p><strong>Created At:</strong> ${created_at}</p>
+    <p><strong>Assignee:</strong> ${assignee ? assignee.login : "None"}</p>
+    <p><strong>Reporter:</strong> ${user.login}</p>
+    <p><strong>URL:</strong> <a href="${html_url}" target="_blank">${html_url}</a></p>
+  `;
 
-  codeBoxContainer.appendChild(toggleButton);
   codeBoxContainer.appendChild(codeBox);
   bodyElement.appendChild(codeBoxContainer);
 
