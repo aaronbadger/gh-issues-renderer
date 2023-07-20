@@ -47,7 +47,7 @@ function createIssueBody(issue) {
   codeBoxContainer.classList.add("code-box-container");
 
   const codeBox = document.createElement("pre");
-  codeBox.classList.add("issue-body-code");
+  codeBox.classList.add("issue-body-code", "hidden"); // Add the 'hidden' class to collapse by default
   codeBox.innerHTML = marked(body);
 
   // Add a button to toggle code box visibility
