@@ -14,7 +14,12 @@
     <h1>A Simple GH Issue Renderer</h1>
   </header>
   <div class="container">
-    <!-- The issue information will be rendered here -->
+    <label for="filter">Filter by State:</label>
+    <select id="filter">
+      <option value="all">All</option>
+      <option value="open">Open</option>
+      <option value="closed">Closed</option>
+    </select>
     <div id="issues"></div>
   </div>
   <footer>
