@@ -37,11 +37,11 @@ header h1 {
   flex: 1; /* Allow the container to grow and push the footer to the bottom */
 }
 
-/* Style the issue cards to take full screen width */
+/* Style the issue cards vertically */
 #issues {
   display: flex;
-  flex-wrap: wrap; /* Allow the issue cards to wrap on smaller screens */
-  justify-content: center; /* Center the issue cards horizontally */
+  flex-direction: column; /* Display issues vertically */
+  align-items: center; /* Center the issue cards horizontally */
   gap: 20px; /* Add spacing between the issues */
 }
 
@@ -50,9 +50,8 @@ header h1 {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 20px;
-  flex: 1; /* Allow the issue cards to grow and take full screen width */
-  min-width: 300px; /* Set a minimum width for the issue cards */
   max-width: 600px; /* Set a maximum width for the issue cards */
+  width: 100%; /* Make the issue cards take full width */
 }
 
 .issue-card h2 {
