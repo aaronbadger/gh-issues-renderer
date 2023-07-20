@@ -32,8 +32,9 @@ header h1 {
 
 /* Add some spacing and style for the container */
 .container {
-  margin: 0;
-  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
   flex: 1; /* Allow the container to grow and push the footer to the bottom */
 }
 
@@ -41,8 +42,8 @@ header h1 {
 #issues {
   display: flex;
   flex-direction: column; /* Display issues vertically */
-  align-items: center; /* Center the issue cards horizontally */
   gap: 20px; /* Add spacing between the issues */
+  text-align: left;
 }
 
 .issue-card {
@@ -50,14 +51,14 @@ header h1 {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 20px;
-  max-width: 600px; /* Set a maximum width for the issue cards */
-  width: 100%; /* Make the issue cards take full width */
+  text-align: left; 
 }
 
 .issue-card h2 {
   font-size: 18px;
   margin-bottom: 10px;
   text-align: left; /* Align the issue card headers to the left */
+  
 }
 
 /* Apply styles to links */
@@ -87,12 +88,11 @@ footer {
   padding: 10px;
   overflow-x: auto; /* Enable horizontal scrolling for code overflow */
   border-radius: 5px;
-  display: none; /* Hide the code box by default */
 }
 
-/* CSS for the code box when expanded */
-.issue-body-code.expanded {
-  display: block; /* Show the code box when expanded */
+/* CSS to hide the code box by default */
+.issue-body-code.hidden {
+  display: none;
 }
 
 /* CSS for the toggle button */
@@ -109,5 +109,3 @@ footer {
 .code-box-container button:hover {
   background-color: #1a1a1a;
 }
-
-/* Add more CSS rules as needed for other elements */
