@@ -18,8 +18,30 @@ async function fetchIssues() {
 
 function createIssueBody(issue) {
   const { number, body, labels, state, created_at, assignee, user, html_url, title } = issue;
-  const bodyElement = document.createElement("div");
-  bodyElement.classList.add("issue-body");
+
+  const issueCard = document.createElement("div");
+  issueCard.classList.add("issue-card");
+
+  const titleElement = document.createElement("h2");
+  titleElement.textContent = title;
+
+  const labelsElement = document.createElement("p");
+  labelsElement.innerHTML = `<strong>Labels:</strong> ${labels.map((label) => label.name).join(", ")}`;
+
+  const stateElement = document.createElement("p");
+  stateElement.innerHTML = `<strong>State:</strong> ${state}`;
+
+  const createdAtElement = document.createElement("p");
+  createdAtElement.innerHTML = `<strong>Created At:</strong> ${created_at}`;
+
+  const assigneeElement = document.createElement("p");
+  assigneeElement.innerHTML = `<strong>Assignee:</strong> ${assignee ? assignee.login : "None"}`;
+
+  const reporterElement = document.createElement("p");
+  reporterElement.innerHTML = `<strong>Reporter:</strong> ${user.login}`;
+
+  const urlElement = document.createElement("p");
+  urlElement.innerHTML = `<strong>URL:</strong> <a href="${html_url}" target="_blank">${html_url}</a>`;
 
   const codeBoxContainer = document.createElement("div");
   codeBoxContainer.classList.add("code-box-container");
@@ -28,20 +50,27 @@ function createIssueBody(issue) {
   codeBox.classList.add("issue-body-code");
   codeBox.innerHTML = marked(body);
 
-  bodyElement.innerHTML = `
-    <h3>${title}</h3>
-    <p><strong>Labels:</strong> ${labels.map((label) => label.name).join(", ")}</p>
-    <p><strong>State:</strong> ${state}</p>
-    <p><strong>Created At:</strong> ${created_at}</p>
-    <p><strong>Assignee:</strong> ${assignee ? assignee.login : "None"}</p>
-    <p><strong>Reporter:</strong> ${user.login}</p>
-    <p><strong>URL:</strong> <a href="${html_url}" target="_blank">${html_url}</a></p>
-  `;
+  // Add a button to toggle code box visibility
+  const toggleButton = document.createElement("button");
+  toggleButton.textContent = "Toggle Code Box";
+  toggleButton.addEventListener("click", () => {
+    codeBox.classList.toggle("hidden");
+  });
 
+  codeBoxContainer.appendChild(toggleButton);
   codeBoxContainer.appendChild(codeBox);
-  bodyElement.appendChild(codeBoxContainer);
 
-  return bodyElement;
+  // Append all elements to the issueCard
+  issueCard.appendChild(titleElement);
+  issueCard.appendChild(labelsElement);
+  issueCard.appendChild(stateElement);
+  issueCard.appendChild(createdAtElement);
+  issueCard.appendChild(assigneeElement);
+  issueCard.appendChild(reporterElement);
+  issueCard.appendChild(urlElement);
+  issueCard.appendChild(codeBoxContainer);
+
+  return issueCard;
 }
 
 function renderIssues(issues) {
