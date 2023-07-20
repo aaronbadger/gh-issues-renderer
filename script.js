@@ -85,4 +85,7 @@ function renderIssues(issues) {
   });
 }
 
+// Add this line before the fetchIssues().then(renderIssues) call
+marked.setOptions({ gfm: true });
+
 fetchIssues().then(renderIssues);
