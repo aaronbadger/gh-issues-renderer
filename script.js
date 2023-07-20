@@ -77,15 +77,24 @@ function renderIssues(issues) {
   const { search } = window.location;
   const filteredIssues = issues.filter(({ number }) => !search || Number(search.slice(1)) === number);
 
-  const issuesContainer = document.getElementById("issues");
+  const filterSelect = document.getElementById("filter");
+  filterSelect.addEventListener("change", () => {
+    const selectedState = filterSelect.value;
 
-  filteredIssues.reverse().forEach((issue) => {
-    const body = createIssueBody(issue);
-    issuesContainer.appendChild(body);
+    const filteredIssues = selectedState === "all" ? issues : issues.filter((issue) => issue.state === selectedState);
+
+    // Clear existing issue cards before rendering filtered issues
+    const issuesContainer = document.getElementById("issues");
+    issuesContainer.innerHTML = "";
+
+    filteredIssues.reverse().forEach((issue) => {
+      const body = createIssueBody(issue);
+      issuesContainer.appendChild(body);
+    });
   });
-}
 
-// Add this line before the fetchIssues().then(renderIssues) call
-marked.setOptions({ gfm: true });
+  // Initial rendering with all issues
+  renderFilteredIssues(issues);
+}
 
 fetchIssues().then(renderIssues);
