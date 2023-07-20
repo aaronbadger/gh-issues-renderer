@@ -32,18 +32,17 @@ header h1 {
 
 /* Add some spacing and style for the container */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 0;
+  padding: 0;
   flex: 1; /* Allow the container to grow and push the footer to the bottom */
 }
 
-/* Style the issue cards vertically */
+/* Style the issue cards to take full screen width */
 #issues {
   display: flex;
-  flex-direction: column; /* Display issues vertically */
+  flex-wrap: wrap; /* Allow the issue cards to wrap on smaller screens */
+  justify-content: center; /* Center the issue cards horizontally */
   gap: 20px; /* Add spacing between the issues */
-  text-align: left;
 }
 
 .issue-card {
@@ -51,14 +50,15 @@ header h1 {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 20px;
-  text-align: left; 
+  flex: 1; /* Allow the issue cards to grow and take full screen width */
+  min-width: 300px; /* Set a minimum width for the issue cards */
+  max-width: 600px; /* Set a maximum width for the issue cards */
 }
 
 .issue-card h2 {
   font-size: 18px;
   margin-bottom: 10px;
   text-align: left; /* Align the issue card headers to the left */
-  
 }
 
 /* Apply styles to links */
@@ -88,9 +88,10 @@ footer {
   padding: 10px;
   overflow-x: auto; /* Enable horizontal scrolling for code overflow */
   border-radius: 5px;
+  display: block; /* Ensure the code box is visible by default */
 }
 
-/* CSS to hide the code box by default */
+/* CSS for the code box when hidden */
 .issue-body-code.hidden {
   display: none;
 }
