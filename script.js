@@ -52,7 +52,7 @@ function createIssueBody(issue) {
 
   // Add a button to toggle code box visibility
   const toggleButton = document.createElement("button");
-  toggleButton.textContent = "Toggle Code Box";
+  toggleButton.textContent = "Expand Issue Detail";
   toggleButton.addEventListener("click", () => {
     codeBox.classList.toggle("hidden");
   });
