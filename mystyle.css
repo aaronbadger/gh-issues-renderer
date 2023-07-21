@@ -79,11 +79,10 @@ footer {
   padding: 10px 0;
 }
 
-/* CSS for the code box
+/* CSS for the code box with black background and neon green text */
 .issue-body-code {
   font-family: 'Roboto', sans-serif;
-  background-color: black;
-  background-color: #000;
+  background-color: #000; /* Changed from black to #000 */
   color: #fff;
   padding: 10px 20px; /* Added padding to the left and right sides */
   overflow-x: auto; /* Enable horizontal scrolling for code overflow */
