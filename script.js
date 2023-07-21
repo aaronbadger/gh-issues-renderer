@@ -87,7 +87,7 @@ function renderIssues(issues) {
   filterSelect.addEventListener("change", () => {
     const selectedState = filterSelect.value;
 
-    const filteredIssues = selectedState === "all" ? issues : issues.filter((issue) => issue.state === selectedState);
+    const filteredIssues = selectedState === "open" ? issues : issues.filter((issue) => issue.state === selectedState);
 
     // Clear existing issue cards before rendering filtered issues
     const issuesContainer = document.getElementById("issues");
