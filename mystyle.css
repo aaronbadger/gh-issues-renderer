@@ -7,7 +7,7 @@
 
 /* Set up the body element with a clean background and font */
 body {
-  font-family: 'Menlo', monospace;
+  font-family: 'Roboto', sans-serif;
   background-color: #1a1a1a; /* Dark background color */
   color: #f2f2f2; /* Light text color */
   line-height: 1.6;
@@ -82,7 +82,7 @@ footer {
 
 /* CSS for the code box with black background and neon green text */
 .issue-body-code {
-  font-family: 'Menlo', monospace;
+  font-family: 'Roboto', sans-serif;
   background-color: black;
   color: #39ff14; /* Neon green */
   padding: 10px;
