@@ -84,7 +84,8 @@ footer {
 .issue-body-code {
   font-family: 'Roboto', sans-serif;
   background-color: black;
-  color: #39ff14; /* Neon green */
+  background-color: #333;
+  color: #fff;
   padding: 10px;
   overflow-x: auto; /* Enable horizontal scrolling for code overflow */
   border-radius: 5px;
@@ -97,8 +98,8 @@ footer {
 
 /* CSS for the toggle button */
 .code-box-container button {
-  background-color: #1a1a1a;
-  color: #39ff14; /* Neon green */
+  background-color: #333;
+  color: #fff;
   border: none;
   padding: 10px 15px;
   margin: 10px 0;
@@ -107,9 +108,4 @@ footer {
   border-radius: 5px;
   text-align: left; /* Align the button text to the left */
   width: 100%; /* Make the button take the full width of its container */
-}
-
-/* CSS for the toggle button on hover */
-.code-box-container button:hover {
-  background-color: #1a1a1a;
 }
