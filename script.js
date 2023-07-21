@@ -17,7 +17,7 @@ async function fetchIssues() {
 }
 
 function createIssueBody(issue) {
-  const { number, body, labels, state, created_at, assignee, user, html_url, title } = issue;
+  const { number, body, labels, status, created_at, assignee, user, html_url, title } = issue;
 
   const issueCard = document.createElement("div");
   issueCard.classList.add("issue-card");
@@ -28,8 +28,8 @@ function createIssueBody(issue) {
   const labelsElement = document.createElement("p");
   labelsElement.innerHTML = `<strong>Labels:</strong> ${labels.map((label) => label.name).join(", ")}`;
 
-  const stateElement = document.createElement("p");
-  stateElement.innerHTML = `<strong>State:</strong> ${state}`;
+  const statusElement = document.createElement("p");
+  statusElement.innerHTML = `<strong>Status:</strong> ${status}`;
 
   const createdAtElement = document.createElement("p");
   createdAtElement.innerHTML = `<strong>Created At:</strong> ${created_at}`;
@@ -63,7 +63,7 @@ function createIssueBody(issue) {
   // Append all elements to the issueCard
   issueCard.appendChild(titleElement);
   issueCard.appendChild(labelsElement);
-  issueCard.appendChild(stateElement);
+  issueCard.appendChild(statusElement);
   issueCard.appendChild(createdAtElement);
   issueCard.appendChild(assigneeElement);
   issueCard.appendChild(reporterElement);
@@ -79,9 +79,9 @@ function renderIssues(issues) {
 
   const filterSelect = document.getElementById("filter");
   filterSelect.addEventListener("change", () => {
-    const selectedState = filterSelect.value;
+    const selectedStatus = filterSelect.value;
 
-    const filteredIssues = selectedState === "all" ? issues : issues.filter((issue) => issue.state === selectedState);
+    const filteredIssues = issues.filter((issue) => issue.status === selectedStatus);
 
     // Clear existing issue cards before rendering filtered issues
     const issuesContainer = document.getElementById("issues");
