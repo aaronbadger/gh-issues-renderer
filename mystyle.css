@@ -100,12 +100,16 @@ footer {
   background-color: #1a1a1a;
   color: #39ff14; /* Neon green */
   border: none;
-  padding: 0px 5px;
-  margin-bottom: 10px;
+  padding: 10px 15px;
+  margin: 10px 0;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 18px;
+  border-radius: 5px;
+  text-align: left; /* Align the button text to the left */
+  width: 100%; /* Make the button take the full width of its container */
 }
 
+/* CSS for the toggle button on hover */
 .code-box-container button:hover {
   background-color: #1a1a1a;
 }
