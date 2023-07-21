@@ -84,10 +84,13 @@ function renderIssues(issues) {
   const filteredIssues = issues.filter(({ number }) => !search || Number(search.slice(1)) === number);
 
   const filterSelect = document.getElementById("filter");
+  // Set the default filter value to "open" to display open issues by default
+  filterSelect.value = "open";
+
   filterSelect.addEventListener("change", () => {
     const selectedState = filterSelect.value;
 
-    const filteredIssues = selectedState === "open" ? issues : issues.filter((issue) => issue.state === selectedState);
+    const filteredIssues = selectedState === "all" ? issues : issues.filter((issue) => issue.state === selectedState);
 
     // Clear existing issue cards before rendering filtered issues
     const issuesContainer = document.getElementById("issues");
@@ -98,6 +101,9 @@ function renderIssues(issues) {
       issuesContainer.appendChild(body);
     });
   });
+
+  // Call the event listener once with the default filter value to render open issues
+  filterSelect.dispatchEvent(new Event("change"));
 }
 
 const repositories = ["gh-issues-renderer", "gh-issues-renderer-repo2"];
