@@ -5,16 +5,27 @@ import { endpoint } from "https://cdn.skypack.dev/@octokit/endpoint";
 
 const TOKEN = "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"; // Your GitHub token (consider handling this server-side)
 
-async function fetchIssues() {
-  const { url, ...options } = endpoint("GET /repos/:owner/:repo/issues", {
-    owner: "aaronbadger",
-    repo: "gh-issues-renderer",
-    auth: TOKEN,
+const repositories = ["gh-issues-renderer", "gh-issues-renderer-repo2"]; // Replace "repo1" and "repo2" with actual repository names
+
+async function fetchIssues(repoNames) {
+  const issuesPromises = repoNames.map(async (repoName) => {
+    const { url, ...options } = endpoint("GET /repos/:owner/:repo/issues", {
+      owner: "aaronbadger",
+      repo: repoName,
+      auth: TOKEN,
+    });
+    const response = await fetch(url, options);
+    return response.json();
   });
-  const response = await fetch(url, options);
-  const issues = await response.json();
-  return issues;
+
+  const allIssues = await Promise.all(issuesPromises);
+
+  // Flatten the array of arrays into a single array of issues
+  const flattenedIssues = allIssues.flat();
+
+  return flattenedIssues;
 }
+
 
 function createIssueBody(issue) {
   const { number, body, labels, state, created_at, assignee, user, html_url, title } = issue;
