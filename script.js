@@ -102,10 +102,6 @@ function renderIssues(issues) {
     });
   });
 
-  // Initial rendering with all issues
-  renderFilteredIssues(issues);
-}
-
 const repositories = ["gh-issues-renderer", "gh-issues-renderer-repo2"];
 
 // Call the fetchIssues function with the repositories array
