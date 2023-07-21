@@ -5,8 +5,6 @@ import { endpoint } from "https://cdn.skypack.dev/@octokit/endpoint";
 
 const TOKEN = "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"; // Your GitHub token (consider handling this server-side)
 
-const repositories = ["gh-issues-renderer", "gh-issues-renderer-repo2"]; // Replace "repo1" and "repo2" with actual repository names
-
 async function fetchIssues(repoNames) {
   const issuesPromises = repoNames.map(async (repoName) => {
     const { url, ...options } = endpoint("GET /repos/:owner/:repo/issues", {
@@ -108,4 +106,7 @@ function renderIssues(issues) {
   renderFilteredIssues(issues);
 }
 
-fetchIssues().then(renderIssues);
+const repositories = ["gh-issues-renderer", "gh-issues-renderer-repo2"];
+
+// Call the fetchIssues function with the repositories array
+fetchIssues(repositories).then(renderIssues);
