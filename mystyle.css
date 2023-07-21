@@ -58,7 +58,6 @@ header h1 {
   font-size: 18px;
   margin-bottom: 10px;
   text-align: left; /* Align the issue card headers to the left */
-  
 }
 
 /* Apply styles to links */
@@ -86,7 +85,7 @@ footer {
   background-color: black;
   background-color: #333;
   color: #fff;
-  padding: 10px;
+  padding: 10px 20px; /* Added padding to the left and right sides */
   overflow-x: auto; /* Enable horizontal scrolling for code overflow */
   border-radius: 5px;
 }
@@ -97,6 +96,10 @@ footer {
 }
 
 /* CSS for the toggle button */
+.code-box-container {
+  text-align: left; /* Align the "expand issue detail" button to the left */
+}
+
 .code-box-container button {
   background-color: #333;
   color: #fff;
@@ -106,6 +109,12 @@ footer {
   cursor: pointer;
   font-size: 18px;
   border-radius: 5px;
-  text-align: left; /* Align the button text to the left */
   width: 100%; /* Make the button take the full width of its container */
+  transition: background-color 0.2s ease; /* Add a smooth transition for background color change */
+}
+
+/* Style the button as a link when hovering over it */
+.code-box-container button:hover {
+  background-color: #444; /* Darken the background color on hover */
+  text-decoration: underline; /* Add an underline to simulate link behavior */
 }
