@@ -1,5 +1,3 @@
-// script.js
-
 import marked from "https://unpkg.com/marked@2.0.0/lib/marked.esm.js";
 import { endpoint } from "https://cdn.skypack.dev/@octokit/endpoint";
 
@@ -23,7 +21,6 @@ async function fetchIssues(repoNames) {
 
   return flattenedIssues;
 }
-
 
 function createIssueBody(issue) {
   const { number, body, labels, state, created_at, assignee, user, html_url, title } = issue;
@@ -101,6 +98,7 @@ function renderIssues(issues) {
       issuesContainer.appendChild(body);
     });
   });
+}
 
 const repositories = ["gh-issues-renderer", "gh-issues-renderer-repo2"];
 
