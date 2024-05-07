@@ -1,1 +1,1 @@
-# gh-issues-renderer
+gh-issues-renderer
